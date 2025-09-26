@@ -22,15 +22,15 @@ while True:
     match user_input:
         case "1":
             username = input("Username: ")
-            passsword = input("Password: ")
-            authorized_user = login(database, username, passsword)
+            password = input("Password: ")
+            authorized_user = login(database, username, password)
             continue
         case "2":
             username = input("Username: ")
-            passsword = input("Password: ")
+            password = input("Password: ")
             authorized_user = register(database,username)
             if authorized_user != "":
-                database[username]=passsword
+                database[username]=password
             continue
         case "3":
             if not authorized_user:
