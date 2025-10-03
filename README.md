@@ -1,7 +1,16 @@
 # DonationRegistryConsole
 ### Simple Donation Management System
 
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
+![Console](https://img.shields.io/badge/Type-Console%20App-orange)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Status](https://img.shields.io/badge/status-active-success)
+
 A console-based donation tracking application that allows users to register, login, make donations, and view donation history.
+
+## Screenshots
+
+> **Note:** Console interface screenshots will be added soon. Run `python app.py` to see the donation system in action.
 
 ## Overview
 
@@ -75,13 +84,90 @@ admin donated $50.00
 
 ## Security Note
 
-This is a demonstration project. In production, passwords should be hashed and user data should be stored persistently in a secure database.
+⚠️ **This is a demonstration project.** In production environments:
+- Passwords should be hashed (use `bcrypt` or `argon2`)
+- User data should be stored in a secure database (PostgreSQL, MongoDB)
+- Implement input sanitization to prevent injection attacks
+- Use HTTPS for any network communication
+- Add rate limiting for login attempts
 
-## Requirements
+## Prerequisites
 
-- Python 3.x
-- No external dependencies required
+- **Python**: version 3.6 or higher ([Download](https://www.python.org/downloads/))
+- **No external dependencies** - uses only Python standard library
+
+To check your Python version:
+```bash
+python --version
+# or
+python3 --version
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Issue:** `python: command not found`
+
+**Solution:** Install Python 3 from [python.org](https://www.python.org/downloads/) or use `python3 app.py` instead.
+
+---
+
+**Issue:** "Must be logged in to donate" message persists after login
+
+**Solution:** This indicates the login failed. Check your username/password. Default credentials: `admin` / `password123`
+
+---
+
+**Issue:** ModuleNotFoundError: No module named 'donations_pkg'
+
+**Solution:** Ensure you're running the app from the project root directory where the `donations_pkg/` folder is located:
+```bash
+cd DonationRegistryConsole
+python app.py
+```
+
+---
+
+**Issue:** Donations disappear after exiting
+
+**Solution:** This is expected behavior. The application uses in-memory storage. Data is lost when the program exits. For persistence, implement database storage.
+
+---
+
+**Issue:** Cannot register with existing username
+
+**Solution:** Usernames must be unique. Choose a different username or login with the existing account.
+
+For additional help, please open an issue in the repository issue tracker.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add YourFeature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a Pull Request
+
+### Enhancement Ideas
+- Add password hashing for security
+- Implement persistent storage (SQLite database)
+- Add donation categories/causes
+- Create user donation history (per user)
+- Add donation statistics and reporting
+- Implement admin panel for user management
+- Add email notifications for donations
+- Create GUI version with tkinter
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact & Support
+
+- **Author**: José Santiago Echevarria
+- **Issues**: Please report bugs via the repository issue tracker
+- **Educational Context**: Demonstrates Python packages, user authentication, and session management
+- **Security Warning**: Not for production use without implementing proper security measures
